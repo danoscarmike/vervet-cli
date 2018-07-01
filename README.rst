@@ -5,5 +5,6 @@ Vervet
     
 Usage
 -----
-Clone this repo: ``git clone https://github.com/danoscarmike/vervet-cli``
-Install: ``pip install -e .``
+- Clone this repo: ``git clone https://github.com/danoscarmike/vervet-cli``
+- Install: ``pip install -e .``
+
