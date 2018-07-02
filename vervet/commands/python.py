@@ -11,7 +11,7 @@ from xml.etree import ElementTree
 
 
 LANGUAGE = 'Python'
-SEARCH_TERM = 'google-cloud-'
+SEARCH_TERM = 'google'
 OWNERS = ['Google Cloud Platform',
           'Google Inc',
           'Google, Inc.',
@@ -33,6 +33,7 @@ def python():
                          ])
 
         for package in tqdm(package_list):
+            print(package)
             package_info_json = pypi_json(package)
             dev_status = get_dev_status(package_info_json)
             if owner_is_author(OWNERS, package_info_json):
@@ -96,3 +97,7 @@ def owner_is_author(owners, package_info_json):
         return True
     else:
         return False
+
+
+if __name__ == "__main__":
+    python()

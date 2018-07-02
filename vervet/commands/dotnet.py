@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 
 LANGUAGE = '.NET'
-SEARCH_TERM = 'Google.Cloud'
+SEARCH_TERM = 'google-cloud'
 
 
 def dotnet():
@@ -42,8 +42,9 @@ def nuget_search(search_term):
     """
     Returns a list of tuples (package_name, registration index urls)
     """
+    # pass 'prerelease=true' to include prerelease packages
     response = requests.get('https://api-v2v3search-0.nuget.org/query?q=' +
-                            search_term + '&prerelease=true&take=200')
+                            search_term + '&prerelease=true&take=1000')
     print('\n.NET: making request to NuGet Search Service...{}'.format(
           response.status_code))
     response_json = response.json()
@@ -108,3 +109,7 @@ def nuget_catalog_entry(catalog_entry_url):
             publish_date,
             listed,
             ]
+            
+            
+if __name__ == "__main__":
+    dotnet()
